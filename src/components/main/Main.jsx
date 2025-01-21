@@ -3,9 +3,16 @@ import './Main.css'
 import { assets } from '../../assets/assets'
 import { Context } from '../../context/context'
 
+
 const Main = () => {
 
     const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context);
+
+    const handleKeyDown = (event) => {
+        if (event.keyCode === 13) { // Check for Enter key press
+          onSent();
+        }
+      };
 
   return (
     <div className='main'>
@@ -63,11 +70,11 @@ const Main = () => {
             
             <div className="main-bottom">
                 <div className="search-box">
-                    <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" placeholder='Enter a promt here' />
+                    <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" placeholder='Enter a promt here' onKeyDown={handleKeyDown} />
                     <div>
                         <img src={assets.gallery_icon} alt="" />
                         <img src={assets.mic_icon} alt="" />
-                        <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
+                        <img onClick={()=>onSent() } src={assets.send_icon} alt="" />
                     </div>
                 </div>
                 <p className="bottom-info">

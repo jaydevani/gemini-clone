@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f0f4f9;
+    transition: all 0.3s ease;
+    background-color: #f0f4f9 ;
     padding: 25px 15px;
 }
 
@@ -11,11 +12,29 @@
     width: 20px;
 }
 
+.sidebar.extended {
+    width: 240px; /* Expanded width */
+  }
+
 .sidebar .menu{
     display: block;
     margin-left: 10px;
     cursor: pointer;
+    transition: transform 0.2s ease
 }
+
+.menu:hover {
+    transform: scale(1.1); /* Scale up on hover */
+  }
+  
+.recent, .bottom {
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease; /* Smooth fade-in effect */
+  }
+  
+.extended .recent, .extended .bottom {
+    opacity: 1; /* Show on expansion */
+  }
 
 .sidebar .new-chat{
     margin-top: 50px;
@@ -50,6 +69,8 @@
     border-radius: 50px;
     color: #282828;
     cursor: pointer;
+    transform: translateX(-10px);
+    transition: all 0.9s ease;
 }
 
 .sidebar .recent-entry:hover{
