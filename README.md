@@ -1,4 +1,4 @@
-# gemini=clone
+# gemini-clone
 
 Developed and integrated a Gemini API-based application to enable seamless data retrieval and synchronizationfor efficient clone management. Implemented robust features using the Gemini API, ensuring high
 performance and scalability in Gemini clone operations.
